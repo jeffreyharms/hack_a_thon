@@ -1,4 +1,4 @@
-from classes.ninja import Ninja
+# from ninjas_vs_pirates.classes import Ninja
 
 
 class Pirate:
@@ -8,18 +8,29 @@ class Pirate:
         self.strength = 15
         self.speed = 3
         self.health = 100
-        self.parrot = 2
-        self.health_potions = 2
-        self.scurvy = 3
+        self.parrot = 3
+        self.health_potions = 0
+        self.scurvy = 0
 
     def show_stats( self ):
         print(f"Name: {self.name}\nStrength: {self.strength}\nSpeed: {self.speed}\nHealth: {self.health}\n")
 
+    def choose_action( self, ninja):
+        print(f"----------Start of {self.name}'s turn-------------")
+        print(f"Choose an action:")
+        print(f"1: Attack")
+        print(f"2: Use item")
+        choice = input("Choose a number: ")
+        if choice == "1":
+            self.attack(ninja)
+        elif choice == "2":
+            self.use_item(ninja)
+
     def attack ( self , ninja ):
-        Ninja.health -= self.strength
+        ninja.health -= self.strength
         return self
 
-def use_item(self, ninja):
+    def use_item(self, ninja):
         choice = " "
         print("-------------------Items-------------------")
         print(f"1 -> Parrot = {self.parrot} : Deals 15dmg")
@@ -30,7 +41,7 @@ def use_item(self, ninja):
         if choice == "1":
             if self.parrot > 0:
                 self.parrot -= 1
-                Ninja.health -= 10
+                ninja.health -= 10
                 print(f"\n{self.name} uses a macaw!")
                 print(f"{ninja.name}'s health: {ninja.health}")
             else:
@@ -38,6 +49,7 @@ def use_item(self, ninja):
                 print("Not enough avian friends!")
                 print("\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n")
                 self.use_item(ninja)
+
         elif choice == "2":
             if self.health_potions > 0:
                 self.health_potions -= 1
@@ -52,11 +64,11 @@ def use_item(self, ninja):
         elif choice == "3":
             if self.scurvy > 0:
                 self.scurvy -= 1
-                Ninja.strength -= 2
+                ninja.strength -= 2
                 print(f"\n{self.name} uses Scurvy Bite")
-                print(f"{Ninja.name}'s strength: {Ninja.strength}")
+                print(f"{ninja.name}'s strength: {ninja.strength}")
             else:
                 print("\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n")
                 print("Not enough teeth left!")
                 print("\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n")
-                self.use_item(ninja)
+                self.use_item(ninja) 

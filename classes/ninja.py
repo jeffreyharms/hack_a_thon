@@ -5,17 +5,29 @@ class Ninja:
         self.strength = 10
         self.speed = 5
         self.health = 100
-        self.throwing_stars = 3
-        self.health_potions = 3
-        self.poison = 2
+        self.throwing_stars = 0
+        self.health_potions = 1
+        self.poison = 1
     
     def show_stats( self ):
         print(f"Name: {self.name}\nStrength: {self.strength}\nSpeed: {self.speed}\nHealth: {self.health}\n")
 
+    def choose_action( self, pirate):
+        print(f"----------Start of {self.name}'s turn-------------")
+        print(f"Choose an action:")
+        print(f"1: Attack")
+        print(f"2: Use item")
+        choice = input("Choose a number: ")
+        if choice == "1":
+            self.attack(pirate)
+        elif choice == "2":
+            self.use_item(pirate)
+
     def attack( self , pirate ):
         pirate.health -= self.strength
+        print(pirate.health)
         return self
-    
+
     def use_item(self, pirate):
         choice = " "
         print("-------------------Items-------------------")
@@ -55,6 +67,6 @@ class Ninja:
                 print(f"{pirate.name}'s strength: {pirate.strength}")
             else:
                 print("\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n")
-                print("Not enough poison!")
+                print("Not enough throwing stars!")
                 print("\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n")
                 self.use_item(pirate)
