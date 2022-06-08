@@ -9,8 +9,21 @@ turn = random.randint(1,2)
 michaelangelo = Ninja("Michaelangelo")
 jack_sparrow = Pirate("Jack Sparrow")
 
+def play_again():
+    choice = input("Would you like to play again? y/n")
+    if choice == "y":
+        play = True
+        michaelangelo.__init__("Michaelangelo")
+        jack_sparrow.__init__("Jack Sparrow")
+    else: 
+        play = False 
+    return play
+
+print("Thanks for playing")
+
 play = True
 
+Ninja.compare_speed(michaelangelo.speed, jack_sparrow.speed)
 while play == True:
     if turn == 1:
         michaelangelo.choose_action(jack_sparrow)

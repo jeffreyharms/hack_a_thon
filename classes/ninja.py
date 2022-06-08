@@ -8,6 +8,16 @@ class Ninja:
         self.throwing_stars = 0
         self.health_potions = 1
         self.poison = 1
+        
+# Static method just to have a static method :P
+    @staticmethod
+    def compare_speed(num1, num2):
+        if(num1 == num2):
+            print("These fighters have the same speed!")
+        elif(num1 > num2):
+            print("Fighter 1 is dancing between the raindrops!")
+        elif(num1 < num2):
+            print("Fighter 2 has challenged Barry Allen to a race.")
     
     def show_stats( self ):
         print(f"Name: {self.name}\nStrength: {self.strength}\nSpeed: {self.speed}\nHealth: {self.health}\n")

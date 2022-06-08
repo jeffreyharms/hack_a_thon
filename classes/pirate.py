@@ -10,7 +10,7 @@ class Pirate:
         self.health = 100
         self.parrot = 3
         self.health_potions = 0
-        self.scurvy = 0
+        self.scurvy = 2
 
     def show_stats( self ):
         print(f"Name: {self.name}\nStrength: {self.strength}\nSpeed: {self.speed}\nHealth: {self.health}\n")
