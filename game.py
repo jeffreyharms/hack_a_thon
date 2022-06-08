@@ -23,15 +23,22 @@ print("Thanks for playing")
 
 play = True
 
-Ninja.compare_speed(michaelangelo.speed, jack_sparrow.speed)
 while play == True:
     if turn == 1:
+        michaelangelo.show_stats()
         michaelangelo.choose_action(jack_sparrow)
         if jack_sparrow.health <= 0:
+            print(f"{jack_sparrow.name} is Dead!")
             play = False
+            play = play_again()
         turn = 2    
     if turn == 2:
+        jack_sparrow.show_stats()
         jack_sparrow.choose_action(michaelangelo)
         if michaelangelo.health <= 0:
+            print(f"{michaelangelo.name} is Dead!")
             play = False
+            play = play_again()
+
+
         turn = 1
